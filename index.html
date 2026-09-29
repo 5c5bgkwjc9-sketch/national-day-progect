@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اليوم الوطني السعودي 96</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+    line-height: 1.8;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #064d32;
+    color: white;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,.2);
+}
+
+nav h2 {
+    font-size: 22px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,70,45,.85),
+            rgba(0,30,20,.9)
+        );
+
+    color: white;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 21px;
+    max-width: 700px;
+    margin: auto;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.hero button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    background: #d4af37;
+    color: #111;
+    font-size: 18px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.hero button:hover {
+    transform: scale(1.05);
+}
+
+.section {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 35px;
+    margin-bottom: 40px;
+    color: #064d32;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h3 {
+    color: #064d32;
+    margin-bottom: 10px;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline-item {
+    background: white;
+    margin: 20px 0;
+    padding: 25px;
+    border-right: 6px solid #064d32;
+    border-radius: 10px;
+    text-align: right;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.timeline-item h3 {
+    color: #064d32;
+    font-size: 28px;
+}
+
+.national {
+    background: #064d32;
+    color: white;
+}
+
+.national h2 {
+    color: white;
+}
+
+.national p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 20px;
+}
+
+.quiz-container {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+}
+
+.quiz-progress {
+    color: #064d32;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+#answers {
+    display: grid;
+    gap: 12px;
+}
+
+.answer {
+    width: 100%;
+    padding: 15px;
+    background: #eee;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.answer:hover:not(:disabled) {
+    background: #d9eee4;
+}
+
+.answer.correct {
+    background: #28a745;
+    color: white;
+}
+
+.answer.wrong {
+    background: #dc3545;
+    color: white;
+}
+
+.result {
+    white-space: pre-line;
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.restart {
+    margin: 25px auto 0;
+    padding: 12px 25px;
+    background: #064d32;
+    color: white;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.sources {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.project-info {
+    max-width: 700px;
+    margin: 60px auto 0;
+}
+
+.project-info h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.info-card {
+    background: white;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border-top: 5px solid #064d32;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.info-card p {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+}
+
+.info-card p:last-child {
+    border-bottom: none;
+}
+
+.info-card strong {
+    color: #064d32;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.celebration {
+    position: fixed;
+    top: -50px;
+    z-index: 9999;
+    font-size: 30px;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width:700px) {
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .info-card p {
+        flex-direction: column;
+        gap: 3px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<h2>🇸🇦 اليوم الوطني السعودي</h2>
+
+<div class="nav-links">
+<a href="#home">الرئيسية</a>
+<a href="#history">التاريخ</a>
+<a href="#national">اليوم الوطني</a>
+<a href="#vision">رؤية 2030</a>
+<a href="#quiz">الاختبار</a>
+</div>
+
+</nav>
+
+<section id="home" class="hero">
+
+<div>
+
+<h1>اليوم الوطني السعودي 🇸🇦</h1>
+
+<p>
+رحلة في تاريخ المملكة العربية السعودية،
+من التأسيس إلى حاضرها ومستقبلها.
+</p>
+
+<button onclick="celebrate()">
+احتفل باليوم الوطني 🎉
+</button>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>معلومات سريعة</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🇸🇦 23 سبتمبر</h3>
+<p>اليوم الوطني للمملكة العربية السعودية.</p>
+</div>
+
+<div class="card">
+<h3>👑 1932</h3>
+<p>إعلان توحيد المملكة العربية السعودية.</p>
+</div>
+
+<div class="card">
+<h3>🚀 رؤية 2030</h3>
+<p>خطة طموحة لتطوير المملكة في مجالات متعددة.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="history" class="section">
+
+<h2>محطات من تاريخ المملكة</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>1727</h3>
+<p>تأسست الدولة السعودية الأولى.</p>
+</div>
+
+<div class="timeline-item">
+<h3>1824</h3>
+<p>تأسست الدولة السعودية الثانية.</p>
+</div>
+
+<div class="timeline-item">
+<h3>1902</h3>
+<p>استرد الملك عبدالعزيز مدينة الرياض.</p>
+</div>
+
+<div class="timeline-item">
+<h3>1932</h3>
+<p>توحيد المملكة العربية السعودية باسمها الحالي.</p>
+</div>
+
+<div class="timeline-item">
+<h3>2016</h3>
+<p>الإعلان عن رؤية السعودية 2030.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="national" class="section national">
+
+<h2>ما هو اليوم الوطني؟</h2>
+
+<p>
+تحتفل المملكة العربية السعودية باليوم الوطني
+في 23 سبتمبر من كل عام، إحياءً لذكرى توحيد المملكة
+وإعلان اسمها المملكة العربية السعودية عام 1932.
+</p>
+
+</section>
+
+<section id="vision" class="section">
+
+<h2>رؤية السعودية 2030 🇸🇦</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>💻 التقنية</h3>
+<p>دعم التحول الرقمي والابتكار والتقنيات الحديثة.</p>
+</div>
+
+<div class="card">
+<h3>🏗️ الاقتصاد</h3>
+<p>تنويع الاقتصاد وتطوير قطاعات جديدة.</p>
+</div>
+
+<div class="card">
+<h3>🌍 السياحة</h3>
+<p>تطوير السياحة والمواقع التراثية والثقافية.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="quiz" class="section">
+
+<h2>اختبر معلوماتك 🇸🇦</h2>
+
+<div class="quiz-container">
+
+<div id="progress" class="quiz-progress"></div>
+
+<h3 id="question"></h3>
+
+<div id="answers"></div>
+
+<div id="result" class="result"></div>
+
+<button
+id="restart"
+class="restart"
+onclick="restartQuiz()"
+style="display:none;">
+🔄 إعادة الاختبار
+</button>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>المصادر</h2>
+
+<div class="sources">
+
+<p>🇸🇦 وزارة الخارجية السعودية</p>
+<p>📚 دارة الملك عبدالعزيز</p>
+<p>🚀 رؤية السعودية 2030</p>
+
+</div>
+
+<div class="project-info">
+
+<h2>بيانات المشروع</h2>
+
+<div class="info-card">
+
+<p>
+<strong>اسم الطالب:</strong>
+<span>باسل حسام خريس</span>
+</p>
+
+<p>
+<strong>اسم المعلم:</strong>
+<span>عبد العزيز الغنام</span>
+</p>
+
+<p>
+<strong>اسم المدرسة:</strong>
+<span>ثانوية الإمام عبد العزيز بن محمد</span>
+</p>
+
+<p>
+<strong>اسم المدير:</strong>
+<span>فهد إبراهيم الزير</span>
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>🇸🇦 مشروع اليوم الوطني السعودي 96</p>
+<p>تم تصميمه باستخدام HTML + CSS + JavaScript</p>
+
+</footer>
+
+<script>
+
+const questions = [
+
+{
+q:"متى يتم الاحتفال باليوم الوطني السعودي؟",
+answers:["23 سبتمبر","1 يناير","22 فبراير","5 يونيو"],
+correct:0
+},
+
+{
+q:"في أي عام تم توحيد المملكة العربية السعودية؟",
+answers:["1902","1932","1950","1975"],
+correct:1
+},
+
+{
+q:"من مؤسس المملكة العربية السعودية الحديثة؟",
+answers:["الملك عبدالعزيز","الملك سعود","الملك فيصل","الملك خالد"],
+correct:0
+},
+
+{
+q:"متى استرد الملك عبدالعزيز مدينة الرياض؟",
+answers:["1727","1824","1902","1932"],
+correct:2
+},
+
+{
+q:"ما اسم الخطة المستقبلية للمملكة حتى عام 2030؟",
+answers:["رؤية 2020","رؤية 2025","رؤية السعودية 2030","رؤية المملكة 2040"],
+correct:2
+},
+
+{
+q:"ما عاصمة المملكة العربية السعودية؟",
+answers:["جدة","مكة","الرياض","الدمام"],
+correct:2
+},
+
+{
+q:"ما اسم الدولة السعودية التي تأسست عام 1727؟",
+answers:["الدولة السعودية الأولى","الدولة السعودية الثانية","المملكة العربية السعودية","الدولة السعودية الثالثة"],
+correct:0
+},
+
+{
+q:"ما المدينة التي استردها الملك عبدالعزيز عام 1902؟",
+answers:["الرياض","المدينة المنورة","جدة","الطائف"],
+correct:0
+},
+
+{
+q:"كم رقم اليوم الوطني السعودي في عام 2026؟",
+answers:["94","95","96","97"],
+correct:2
+},
+
+{
+q:"ما لون العلم السعودي؟",
+answers:["أخضر","أزرق","أحمر","أصفر"],
+correct:0
+}
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function showQuestion() {
+
+const question = questions[currentQuestion];
+
+document.getElementById("progress").textContent =
+"السؤال " +
+(currentQuestion + 1) +
+" من " +
+questions.length;
+
+document.getElementById("question").textContent =
+question.q;
+
+const answersContainer =
+document.getElementById("answers");
+
+answersContainer.innerHTML = "";
+
+question.answers.forEach(function(answer,index) {
+
+const button =
+document.createElement("button");
+
+button.className = "answer";
+
+button.textContent = answer;
+
+button.onclick = function() {
+
+checkAnswer(index,button);
+
+};
+
+answersContainer.appendChild(button);
+
+});
+
+}
+
+function checkAnswer(selected,button) {
+
+const correct =
+questions[currentQuestion].correct;
+
+const buttons =
+document.querySelectorAll(".answer");
+
+buttons.forEach(function(btn) {
+
+btn.disabled = true;
+
+});
+
+if(selected === correct) {
+
+button.classList.add("correct");
+
+score++;
+
+}
+
+else {
+
+button.classList.add("wrong");
+
+buttons[correct].classList.add("correct");
+
+}
+
+setTimeout(function() {
+
+currentQuestion++;
+
+if(currentQuestion < questions.length) {
+
+showQuestion();
+
+}
+
+else {
+
+finishQuiz();
+
+}
+
+},900);
+
+}
+
+function finishQuiz() {
+
+const percentage =
+Math.round((score / questions.length) * 100);
+
+document.getElementById("progress").textContent =
+"انتهى الاختبار 🎉";
+
+document.getElementById("question").textContent =
+"نتيجتك النهائية";
+
+document.getElementById("answers").innerHTML = "";
+
+let message;
+
+if(percentage >= 90) {
+
+message = "🏆 ممتاز جدًا! معلوماتك قوية.";
+
+}
+
+else if(percentage >= 70) {
+
+message = "⭐ أداء رائع! لديك معرفة جيدة.";
+
+}
+
+else if(percentage >= 50) {
+
+message = "👍 نتيجة جيدة، ويمكنك تطوير معلوماتك أكثر.";
+
+}
+
+else {
+
+message = "📚 حاول مرة أخرى وتعرف أكثر على تاريخ المملكة.";
+
+}
+
+document.getElementById("result").textContent =
+
+"أجبت بشكل صحيح على " +
+score +
+" من " +
+questions.length +
+" — " +
+percentage +
+"%\n" +
+message;
+
+document.getElementById("restart").style.display =
+"block";
+
+}
+
+function restartQuiz() {
+
+currentQuestion = 0;
+
+score = 0;
+
+document.getElementById("result").textContent = "";
+
+document.getElementById("restart").style.display =
+"none";
+
+showQuestion();
+
+}
+
+function celebrate() {
+
+const symbols = [
+"🇸🇦",
+"💚",
+"⭐",
+"🎉"
+];
+
+for(let i=0;i<50;i++) {
+
+const item =
+document.createElement("div");
+
+item.className =
+"celebration";
+
+item.textContent =
+symbols[
+Math.floor(Math.random() * symbols.length)
+];
+
+item.style.left =
+Math.random() * 100 + "vw";
+
+item.style.animationDelay =
+Math.random() + "s";
+
+document.body.appendChild(item);
+
+setTimeout(function() {
+
+item.remove();
+
+},5000);
+
+}
+
+}
+
+showQuestion();
+
+</script>
+
+</body>
+</html>
